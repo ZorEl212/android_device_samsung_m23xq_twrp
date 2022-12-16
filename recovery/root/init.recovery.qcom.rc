@@ -25,9 +25,18 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /init.recovery.qcom_decrypt.rc
+
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
     setprop sys.usb.configfs 1
+    echo 1,0 > /sys/class/sec/tsp/enabled
+    echo 1,1 > /sys/class/sec/tsp/enabled
+    input keyevent 26
+    sleep 1
+    input keyevent 26
+    echo 2,1 > /sys/class/sec/tsp/enabled
+    echo 2,0 > /sys/class/sec/tsp/enabled
 
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
@@ -36,3 +45,6 @@ on property:ro.boot.usbcontroller=*
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    
+on boot
+    start health-hal-2-1
