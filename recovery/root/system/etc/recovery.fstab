@@ -32,11 +32,11 @@
 #TODO: Add 'check' as fs_mgr_flags with data partition.
 # Currently we dont have e2fsck compiled. So fs check would failed.
 
-#<src>                                                 <mnt_point>               <type>  <mnt_flags and options>                            <fs_mgr_flags>
-system                                     /system         ext4    ro,barrier=1,discard                                                                                wait,logical,first_stage_mount
-vendor                                     /vendor         ext4    ro,barrier=1,discard                                                                                wait,logical,first_stage_mount
-product                                    /product        ext4    ro,barrier=1,discard                                                                                wait,logical,first_stage_mount
-odm                                        /odm            ext4    ro,barrier=1,discard                                                                                wait,logical,first_stage_mount
-
+#<src>                                     <mnt_point>     <type>  <mnt_flags and options>                            <fs_mgr_flags>
+system                                     /system         ext4    ro,barrier=1,discard                               wait,logical,first_stage_mount
+vendor                                     /vendor         ext4    ro,barrier=1,discard                               wait,logical,first_stage_mount
+product                                    /product        ext4    ro,barrier=1,discard                               wait,logical,first_stage_mount
+odm                                        /odm            ext4    ro,barrier=1,discard                               wait,logical,first_stage_mount
+/dev/block/by-name/metadata                /metadata       ext4    noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic,sync    wait,formattable,first_stage_mount,check
 /dev/block/bootdevice/by-name/userdata     /data           f2fs    noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678,inlinecrypt  wait,check,quota,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,metadata_encryption=aes-256-xts
-/dev/block/bootdevice/by-name/misc         /misc           emmc    defaults                   
+/dev/block/bootdevice/by-name/misc         /misc           emmc    defaults                                           defaults,first_stage_mount
