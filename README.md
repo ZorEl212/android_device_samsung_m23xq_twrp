@@ -1,5 +1,5 @@
 # TWRP Device configuration for Samsung SM-E236B (m23xq)
-========================================================
+============================================================================================
 
 ```
 #
@@ -41,7 +41,11 @@ Then add to a local manifest (if you don't have .repo/local_manifest then make t
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+  <remote name="me" 
+        fetch="https://github.com/Aflaungos" />
   <project name="android_device_samsung_m23xq" path="device/samsung/m23xq" remote="Aflaungos" revision="lineage-19.1"/>
+  <project path="device/samsung/sm7225-common" name="android_device_samsung_sm7225-common" remote="me" revision="lineage-19.1" />
+  <project path="vendor/samsung" name="android_vendor_samsung_sm7225-common" remote="me" revision="lineage-19.1" />
 </manifest>
 ```
 
