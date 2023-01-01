@@ -27,12 +27,3 @@ PRODUCT_PACKAGES += \
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so
-
-# Copy modules for depmod
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/llcc_perfmon.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/llcc_perfmon.ko \
-    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/mpq-adapter.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/mpq-adapter.ko \
-    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/mpq-dmx-hw-plugin.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/mpq-dmx-hw-plugin.ko \
-    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/rdbg.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/rdbg.ko \
-    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/rmnet_perf.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/rmnet_perf.ko \
-    $(LOCAL_PATH)/recovery/root/vendor/lib/modules/rmnet_shs.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/rmnet_shs.ko \
