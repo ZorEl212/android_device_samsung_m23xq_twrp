@@ -38,7 +38,5 @@ vendor                                     /vendor         ext4    ro,barrier=1,
 product                                    /product        ext4    ro,barrier=1,discard                                                                                wait,logical,first_stage_mount
 odm                                        /odm            ext4    ro,barrier=1,discard                                                                                wait,logical,first_stage_mount
 
-/dev/block/bootdevice/by-name/userdata     /data           f2fs    noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678,inlinecrypt  wait,check,encryptable=footer,quota,reservedsize=128M,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,metadata_encryption=aes-256-xts
+/dev/block/bootdevice/by-name/userdata     /data           f2fs    noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678,inlinecrypt  wait,check,quota,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,metadata_encryption=aes-256-xts
 /dev/block/bootdevice/by-name/misc         /misc           emmc    defaults
-/dev/block/bootdevice/by-name/cache		     /cache			     ext4	   nosuid,nodev,noatime                                                                                wait,formattable,check
-/dev/block/bootdevice/by-name/cache		     /cache		       f2fs	   nosuid,nodev,noatime,inline_xattr,flush_merge,data_flush                                            wait,formattable,check
