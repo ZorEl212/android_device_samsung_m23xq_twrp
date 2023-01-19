@@ -16,6 +16,10 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# Keystore
+PRODUCT_PACKAGES += \
+    android.system.keystore2
+
 # Dependencies
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion
