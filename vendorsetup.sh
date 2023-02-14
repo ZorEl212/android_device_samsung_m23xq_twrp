@@ -1,10 +1,9 @@
 #
 # Copyright (C) 2022 The Android Open Source Project
-# Copyright (C) 2022 SebaUbuntu's TWRP device tree generator
+# Copyright (C) 2022 The TWRP Open Source Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
-add_lunch_combo omni_m23xq-user
-add_lunch_combo omni_m23xq-userdebug
-add_lunch_combo omni_m23xq-eng
+# For building with minimal manifest
+export ALLOW_MISSING_DEPENDENCIES=true
