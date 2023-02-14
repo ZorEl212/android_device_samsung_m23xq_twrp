@@ -3,10 +3,11 @@
 ## Device specifications
 Basic    | Spec Sheet
 --------:|:----------------------
-SoC      | Qualcomm Snapdragon 750G
+Chipset  | Qualcomm Snapdragon 750G
 CPU      | Octa-core (6x1.8ghz Kryo 570 & 2x2.2ghz Cortex A77)
 GPU      | Adreno 619
-Memory   | 128GB 6GB RAM
+Memory   | 6GB RAM (LPDDR4X)
+Storage  | 128GB
 Shipped Android version | Android 12, OneUI 4.1
 Battery  | Li-ion 5000mAh, non-removable
 Display  | LCD, 120Hz, 525 nits, 6.6 inch, 1080 x 2408 pixels, 20:9 ratio
@@ -17,7 +18,7 @@ Display  | LCD, 120Hz, 525 nits, 6.6 inch, 1080 x 2408 pixels, 20:9 ratio
 ## Kernel Source
 From Stock ROM
 ```
-m23xqxx-user 12 SP1A.210812.016 M236BXXU1AVH1 release-keys
+m23xqxx-user 12 SP1A.210812.016 M236BXXU1BWA5 release-keys
 ```
 ## How to compile
 First repo init the twrp-12.1 tree:
@@ -36,22 +37,14 @@ Then add to a local manifest (if you don't have .repo/local_manifest then make t
 <manifest>
   <remote name="me" 
         fetch="https://github.com/ZorEl212" />
-  <remote name="Aflaungos" 
-        fetch="https://github.com/Aflaungos" />
-  <project name="android_device_samsung_m23xq" path="device/samsung/m23xq" remote="me" revision="test-2"/>
+  <project name="android_device_samsung_m23xq" path="device/samsung/m23xq" remote="me" revision="final"/>
 </manifest>
 ```
-
 Now you can sync your source:
-
 ```
 repo sync
 ```
-
-To automatically make the TWRP installer zip, you need to import this commit in the build/make path: https://gerrit.twrp.me/c/android_build/+/5445
-
 Finally execute these:
-
 ```
 . build/envsetup.sh
 export ALLOW_MISSING_DEPENDENCIES=true
