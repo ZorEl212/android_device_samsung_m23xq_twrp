@@ -1,4 +1,4 @@
-# TWRP Device configuration for Samsung Galaxy M23/F23 SM-E236B (m23xq)
+# TWRP Device configuration for Samsung Galaxy M23/F23 SM-M236B/SM-E236B (m23xq)
 
 ## Device specifications
 Basic    | Spec Sheet
