@@ -1,6 +1,6 @@
 #
-# Copyright (C) 2022 The Android Open Source Project
-# Copyright (C) 2022 The TWRP Open Source Project
+# Copyright (C) 2023 The Android Open Source Project
+# Copyright (C) 2023 The TWRP Open Source Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -22,7 +22,6 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a77
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := $(PRODUCT_PLATFORM)
-TARGET_NO_BOOTLOADER := true
 
 # Platform
 TARGET_BOARD_PLATFORM := $(TARGET_BOOTLOADER_BOARD_NAME)
@@ -121,7 +120,6 @@ PLATFORM_VERSION := 99
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_NO_SCREEN_TIMEOUT := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 486
@@ -129,9 +127,7 @@ TW_DEFAULT_BRIGHTNESS := 250
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone50/temp"
 TW_Y_OFFSET := 80
-TW_H_OFFSET := -80
-RECOVERY_SDCARD_ON_DATA := true
-TW_NO_REBOOT_BOOTLOADER := true
+TW_H_OFFSET := -78
 TW_HAS_DOWNLOAD_MODE := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_BACKUP_EXCLUSIONS := /data/fonts
