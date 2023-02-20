@@ -39,7 +39,6 @@ on fs
     # Mount firmware
     mkdir /vendor/firmware_mnt
     mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt ro
-    mount fat32 /dev/block/mmcblk0p1 /external_sd rw
 
     start linkblobs
 

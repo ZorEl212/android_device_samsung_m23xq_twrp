@@ -27,4 +27,3 @@
 # Removable partitions
 /external_sd	auto		/dev/block/mmcblk0p1	/dev/block/mmcblk1	flags=storage;wipeingui;removable
 /usb-otg	auto		/dev/block/sdg1		/dev/block/sdg		flags=storage;wipeingui;removable
-/firmware_mnt	vfat		/dev/block/bootdevice/by-name/apnhlos		flags=display="Firmware";mounttodecrypt
