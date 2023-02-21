@@ -22,14 +22,10 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a77
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := $(PRODUCT_PLATFORM)
-TARGET_NO_BOOTLOADER := true
 
 # Platform
 TARGET_BOARD_PLATFORM := $(TARGET_BOOTLOADER_BOARD_NAME)
 QCOM_BOARD_PLATFORMS += $(TARGET_BOARD_PLATFORM)
-
-# Display
-TARGET_SCREEN_DENSITY := 384
 
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
@@ -49,11 +45,14 @@ BOARD_KERNEL_CMDLINE := \
     msm_rtb.filter=0x237 \
     service_locator.enable=1 \
     androidboot.usbcontroller=a600000.dwc3 \
-    swiotlb=2048 \
+    swiotlb=0 \
     loop.max_part=7 \
     cgroup.memory=nokmem,nosocket \
     firmware_class.path=/vendor/firmware_mnt/image \
+    pcie_ports=compat \
     loop.max_part=7 \
+    iptable_raw.raw_before_defrag=1 \
+    ip6table_raw.raw_before_defrag=1 \
     printk.devkmsg=on
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
@@ -71,7 +70,6 @@ BOARD_ROOT_EXTRA_FOLDERS := \
     omr \
     optics \
     prism \
-    metadata \
     spu
 
 # Android Verified Boot
@@ -121,10 +119,7 @@ PLATFORM_VERSION := 99
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
-TW_INCLUDE_FB2PNG := true
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_EXCLUDE_TWRPAPP := true
-TW_USE_SAMSUNG_HAPTICS := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 486
@@ -141,8 +136,3 @@ TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_NTFS_3G := true
-
-# TWRP Configuration: Logd
-TWRP_EVENT_LOGGING := true
-TWRP_INCLUDE_LOGCAT := true
-TARGET_USES_LOGD := true
