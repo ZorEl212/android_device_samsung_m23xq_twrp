@@ -16,7 +16,7 @@
 BOOTLOADER=`getprop ro.boot.bootloader`
 OS_VERSION=`echo ${BOOTLOADER:9:1} | tr ABCDEFGHI 123456789`
 
-if [ "$OS_VERSION" -ge 4 ]; then
+if [ "$OS_VERSION" -ge 2 ]; then
   echo "I:linkblobs: Bootloader version: $BOOTLOADER, using Android 13 blobs" >> /tmp/recovery.log;
   ln -s /vendor/lib64/hw/sgk-13 /vendor/lib64/hw/gatekeeper.mdfpp.so
   ln -s /vendor/lib64/skm-13 /vendor/lib64/libskeymaster4device.so
