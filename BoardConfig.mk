@@ -124,7 +124,7 @@ PLATFORM_VERSION := 99
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_NO_SCREEN_TIMEOUT := true
+# TW_NO_SCREEN_TIMEOUT := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true # Fixes wrong date and time on timestamps
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
