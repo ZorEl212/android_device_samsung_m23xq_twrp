@@ -25,6 +25,17 @@
         </interface>
         <fqname>@1.0::ISchedulingPolicyService/default</fqname>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.samsung.hardware.sysinput</name>
+        <version>1.3</version>
+        <interface>
+            <name>ISehSysInputCallback</name>
+        </interface>
+        <interface>
+            <name>ISehSysInputDev</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl">
         <name>android.frameworks.sensorservice</name>
         <transport>hwbinder</transport>

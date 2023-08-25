@@ -18,7 +18,7 @@ Display  | LCD, 120Hz, 525 nits, 6.6 inch, 1080 x 2408 pixels, 20:9 ratio
 ## Kernel Source
 From Stock ROM
 ```
-m23xqxx-user 12 SP1A.210812.016 M236BXXU1BWA5 release-keys
+m23xqxx-user 13 TP1A.220624.014 M236BXXU4CWF3 release-keys
 ```
 ## How to compile
 First repo init the twrp-12.1 tree:

@@ -5,13 +5,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Only the below variable(s) need to be changed!
-#
 # Define hardware platform
 PRODUCT_PLATFORM := lito
 
-# The below variables will be generated automatically
-#
 # Release name (automatically taken from this file's suffix)
 PRODUCT_RELEASE_NAME := $(lastword $(subst /, ,$(lastword $(subst _, ,$(firstword $(subst ., ,$(MAKEFILE_LIST)))))))
 
@@ -28,7 +24,7 @@ $(call inherit-product, vendor/$(CUSTOM_VENDOR)/config/common.mk)
 # OEM Info (automatically taken from device tree path)
 BOARD_VENDOR := $(or $(word 2,$(subst /, ,$(firstword $(MAKEFILE_LIST)))),$(value 2))
 
-## Device identifier. This must come after all inclusions
+## Device identifier
 PRODUCT_DEVICE := $(PRODUCT_RELEASE_NAME)
 PRODUCT_NAME := $(CUSTOM_VENDOR)_$(PRODUCT_DEVICE)
 PRODUCT_BRAND := $(BOARD_VENDOR)

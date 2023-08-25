@@ -125,7 +125,7 @@ PLATFORM_VERSION := 99
 TW_THEME := portrait_hdpi
 TW_SCREEN_BLANK_ON_BOOT := true
 # TW_NO_SCREEN_TIMEOUT := true
-TARGET_RECOVERY_QCOM_RTC_FIX := true # Fixes wrong date and time on timestamps
+TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 306
@@ -140,7 +140,6 @@ TW_BACKUP_EXCLUSIONS := /data/fonts
 TW_EXTRA_LANGUAGES := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_NTFS_3G := true
 
 # TWRP Configuration: Logd
