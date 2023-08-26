@@ -1,4 +1,4 @@
-# Copyright (c) 2017-2018,2020 The Linux Foundation. All rights reserved.
+# Copyright (c) 2023 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -55,28 +55,8 @@ on fs
 
     start linkblobs
 
-on early-boot
-    chown system system /dev/tspio
-    chown system system /dev/tsp_data
-    chown system system /sys/class/sec/tsp/input/enabled
-    chown system system /sys/class/sec/tsp1/input/enabled
-    chown system system /sys/class/sec/tsp2/input/enabled
-    chown system system /sys/class/sec/sec_epen/input/enabled
-    chown system system /sys/class/sec/tsp/enabled
-    chown system system /sys/class/sec/tsp1/enabled
-    chown system system /sys/class/sec/tsp2/enabled
-    chown system system /sys/class/sec/sec_epen/enabled
-
 on boot
     start health-hal-2-1
-
-    # Brightness Permissions
-    chown system system /sys/class/backlight/panel0-backlight/brightness
-    chmod 0664 /sys/class/backlight/panel0-backlight/brightness
-    chown system system /sys/class/backlight/panel1-backlight/brightness
-    chmod 0664 /sys/class/backlight/panel1-backlight/brightness
-    chown system system /sys/class/leds/lcd-backlight/brightness
-    chmod 0664 /sys/class/leds/lcd-backlight/brightness
 
     # Permissions for Touchscreen
     chown system radio /sys/class/sec/tsp/cmd
@@ -84,66 +64,6 @@ on boot
     chmod 0660 /sys/class/sec/tsp/input/enabled
     chown system system /sys/class/sec/tsp/enabled
     chmod 0660 /sys/class/sec/tsp/enabled
-    chown root system /proc/tsp_msg
-    chmod 0440 /proc/tsp_msg
-    chown system radio /sys/class/sec/tsp/pressure_enable
-    chown system system /sys/class/sec/tsp/multi_count
-    chown system system /sys/class/sec/tsp/wet_mode
-    chown system system /sys/class/sec/tsp/noise_mode
-    chown system system /sys/class/sec/tsp/comm_err_count
-    chown system system /sys/class/sec/tsp/checksum
-    chown system system /sys/class/sec/tsp/holding_time
-    chown system system /sys/class/sec/tsp/all_touch_count
-    chown system system /sys/class/sec/tsp/z_value
-    chown system system /sys/class/sec/tsp/sensitivity_mode
-    chown system system /sys/class/sec/tsp/prox_power_off
-    chown system system /sys/class/sec/tsp/irq_recovery_count
-    chown system system /sys/class/sec/tsp/ic_reset_count
-    chown system system /sys/class/sec/tsp/mode_change_failed_count
-    chown system system /sys/class/sec/sec_key/key_pressed_count
-    chown system system /dev/tspio
-    chown system system /sys/class/sec/tsp/ear_detect_enable
-    chown system system /sys/class/sec/tsp/ta_mode
-    chown system system /sys/class/sec/tsp/virtual_prox
-    chown system system /sys/class/sec/tsp/hw_param
-    chown system system /sys/class/sec/tsp/input/trusted_touch_enable
-    chown system system /sys/class/sec/tsp/input/trusted_touch_event
-    chown system system /sys/class/sec/tsp/input/trusted_touch_type
-
-    # Key
-    chown system radio /sys/class/sec/sec_key/wakeup_keys
-    write /sys/class/sec/sec_key/wakeup_keys 116,172
-    chown system system /sys/class/sec/sec_key/key_pressed_count
-    chown system radio /sys/class/sec/sec_sidekey/cmd
-    chown system system /sys/class/sec/sec_sidekey/input/enabled
-    chmod 0660 /sys/class/sec/sec_sidekey/input/enabled
-
-# enabled permission
-on property:sys.boot_completed=1
-    chown system system /sys/class/sec/tsp/input/enabled
-    chown system system /sys/class/sec/tsp1/input/enabled
-    chown system system /sys/class/sec/tsp2/input/enabled
-    chown system system /sys/class/sec/sec_epen/input/enabled
-    chown system system /sys/class/sec/tsp/enabled
-    chown system system /sys/class/sec/tsp1/enabled
-    chown system system /sys/class/sec/tsp2/enabled
-    chown system system /sys/class/sec/sec_epen/enabled
-    chown system system /sys/class/sec/tsp/input/trusted_touch_enable
-    chown system system /sys/class/sec/tsp/input/trusted_touch_event
-    chown system system /sys/class/sec/tsp/input/trusted_touch_type
-    chown system system /sys/class/sec/tsp1/input/trusted_touch_enable
-    chown system system /sys/class/sec/tsp1/input/trusted_touch_event
-    chown system system /sys/class/sec/tsp1/input/trusted_touch_type
-    chown system system /sys/class/sec/tsp2/input/trusted_touch_enable
-    chown system system /sys/class/sec/tsp2/input/trusted_touch_event
-    chown system system /sys/class/sec/tsp2/input/trusted_touch_type
-
-service sec-sysinput-1-3 /vendor/bin/hw/vendor.samsung.hardware.sysinput@1.3-service
-    class hal
-    priority -8
-    user root
-    group root
-    seclabel u:r:recovery:s0
 
 service linkblobs /system/bin/linkblobs.sh
     user root
