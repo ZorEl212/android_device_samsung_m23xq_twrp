@@ -37,6 +37,13 @@ on init
     restorecon_recursive /sys/class/sec/tsp
     restorecon /sys/class/sec/tsp/cmd
 
+    # Permissions for Touchscreen
+    chown system radio /sys/class/sec/tsp/cmd
+    chown system system /sys/class/sec/tsp/input/enabled
+    chmod 0660 /sys/class/sec/tsp/input/enabled
+    chown system system /sys/class/sec/tsp/enabled
+    chmod 0660 /sys/class/sec/tsp/enabled
+
     # Send Touchscreen fix commands
     write /sys/class/sec/tsp/cmd aot_enable,1
     write /sys/class/sec/tsp/cmd check_connection
@@ -54,13 +61,6 @@ on fs
 
 on boot
     start health-hal-2-1
-
-    # Permissions for Touchscreen
-    chown system radio /sys/class/sec/tsp/cmd
-    chown system system /sys/class/sec/tsp/input/enabled
-    chmod 0660 /sys/class/sec/tsp/input/enabled
-    chown system system /sys/class/sec/tsp/enabled
-    chmod 0660 /sys/class/sec/tsp/enabled
 
 service linkblobs /system/bin/linkblobs.sh
     user root
