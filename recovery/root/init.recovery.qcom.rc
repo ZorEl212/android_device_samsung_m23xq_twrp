@@ -1,4 +1,4 @@
-# Copyright (c) 2023 The Linux Foundation. All rights reserved.
+# Copyright (c) 2017-2018,2020 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -26,34 +26,18 @@
 #
 
 import /init.recovery.qcom_decrypt.rc
+import /init.recovery.display.rc
 
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
     setprop prepdecrypt.setpatch true
     setprop prepdecrypt.loglevel 2
 
-    # Create the mountpoint for mnt/vendor partitions
-    mkdir /sys/class/sec 0771 root root
-    restorecon_recursive /sys/class/sec/tsp
-    restorecon /sys/class/sec/tsp/cmd
-
-    # Permissions for Touchscreen
-    chown system radio /sys/class/sec/tsp/cmd
-    chown system system /sys/class/sec/tsp/input/enabled
-    chmod 0660 /sys/class/sec/tsp/input/enabled
-    chown system system /sys/class/sec/tsp/enabled
-    chmod 0660 /sys/class/sec/tsp/enabled
-
-    # Send Touchscreen fix commands
-    write /sys/class/sec/tsp/cmd aot_enable,1
-    write /sys/class/sec/tsp/cmd check_connection
-    write /sys/class/sec/tsp/enabled 1,0
-    write /sys/class/sec/tsp/enabled 2,1
-
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
+    # Mount firmware
     mkdir /vendor/firmware_mnt
     mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt ro
 
