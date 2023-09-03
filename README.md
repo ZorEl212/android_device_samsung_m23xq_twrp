@@ -37,7 +37,7 @@ Then add to a local manifest (if you don't have .repo/local_manifest then make t
 <manifest>
   <remote name="me" 
         fetch="https://github.com/ZorEl212" />
-  <project name="android_device_samsung_m23xq" path="device/samsung/m23xq" remote="me" revision="final"/>
+  <project name="android_device_samsung_m23xq" path="device/samsung/m23xq" remote="me" revision="twrp_12.1"/>
 </manifest>
 ```
 Now you can sync your source:
@@ -49,5 +49,5 @@ Finally execute these:
 . build/envsetup.sh
 export ALLOW_MISSING_DEPENDENCIES=true
 lunch twrp_m23xq-eng
-mka bootimage
+mka recoveryimage
 ```
